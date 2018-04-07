@@ -1,5 +1,7 @@
 # Bookkeeping
 
+![1](https://user-images.githubusercontent.com/25200958/38456892-b5375cca-3a9a-11e8-8e98-59ec51969b75.png)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
 
 ## Development server
