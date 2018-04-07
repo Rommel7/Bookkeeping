@@ -1,4 +1,5 @@
 <p class="text-xs-center">Login for work</p>
+<div class="alert alert-{{message.type}}" *ngIf="message.text">{{message.text}}</div>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="form-group" [ngClass]="{'has-error': form.get('email').invalid && form.get('email').touched}">
     <label for="email">Email</label>
@@ -12,8 +13,8 @@
     <label for="password">Password</label>
     <input type="password" class="form-control underlined" id="password" placeholder="Password" formControlName="password">
     <span class="form-help-text" *ngIf="form.get('password').invalid && form.get('password').touched">
-      <span *ngIf="form.get('password') ['errors'] ['required']">Password address cannot be empty. </span>
-      <span *ngIf="form.get('password') ['errors'] ['minlength']">Password needs to be at least {{ form.get('password') ['errors'] ['minlength'] ['requiredLength'] }} characters. Actual
+      <span *ngIf="form.get('password') ['errors'] ['required']">Password cannot be empty. </span>
+      <span *ngIf="form.get('password') ['errors'] ['minlength'] && form.get('password') ['errors'] ['minlength'] ['requiredLength']">Password needs to be at least {{ form.get('password') ['errors'] ['minlength'] ['requiredLength'] }} characters. Actual
         length is {{ form.get('password') ['errors'] ['minlength'] ['actualLength'] }}
       </span>
     </span>
@@ -24,7 +25,8 @@
   <div class="form-group">
     <p class="text-muted text-xs-center">
       Don't have an account?
-      <a href="#">Sign Up!</a>
+      <a [routerLink]="'/registration'">
+        Sign Up!</a>
     </p>
   </div>
 </form>
